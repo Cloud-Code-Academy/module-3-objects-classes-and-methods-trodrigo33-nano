@@ -259,9 +259,9 @@ public with sharing class ClassesObjectsMethods {
         }
     
         // Method that returns the details of the book
-        public String getBookDetails(String title, String author) {
+        public String getBookDetails() {
             // return A string containing the details of the book in the format "Title: <title>, Author: <author>"
-            return ('Title: ' + title + ', Author: ' + author); 
+            return ('Title: ' + this.title + ', Author: ' + this.author); 
         }
     }
     
@@ -276,7 +276,7 @@ public with sharing class ClassesObjectsMethods {
     public static String createAndGetBookDetails(String title, String author) {
         // Create a Book object with title "A Brief History of Time" and author "Stephen Hawking"
         Book result = new Book('A Brief History of Time', 'Stephen Hawking');
-        return result.getBookDetails(title, author);
+        return result.getBookDetails();
     }
 
     /**
@@ -293,9 +293,10 @@ public with sharing class ClassesObjectsMethods {
         List<Book> bookList = new List<Book>();
 
         // Update the title and author of myBook1 and update pages to 352.
-        mybook1.author = 'Thayne Rodrigo';
-        myBook1.title = 'Harry the Teenage Wizard';
+        mybook1.author = 'J.K. Rowling';
+        myBook1.title = 'Harry Potter and the Chamber of Secrets';
         mybook1.pages = 352;
+        bookList.add(myBook1);
 
         // Create a new Book object
         Book mybook2 = new Book ('A Brief History of Time', 'Stephen Hawking');
@@ -327,8 +328,8 @@ public with sharing class ClassesObjectsMethods {
         // For example, introduceYourself() should return a string like "Hello, my name is John Doe and I am 28 years old."
         // Return a string in the format "Hello, my name is <name> and I am <age> years old."
 
-        public String introduceYourself (String name, Integer age) {
-        return 'Hello, my name is ' + name + ' and I am ' + age + ' years old.';
+        public String introduceYourself () {
+        return 'Hello, my name is ' + this.name + ' and I am ' + this.age + ' years old.';
         }
         // Getter method that returns the name of the person
           public String getName(){
@@ -359,10 +360,12 @@ public with sharing class ClassesObjectsMethods {
         List<String> results = new List<String>();
         // Create a new instance of Person class
         // Name the person 'John Doe' and set the age to 28
-        Person Person1 = new Person('John Doe', 28);
+        Person Person1 = new Person();
+        Person1.setName('John Doe');
+        Person1.setAge(28);
         
         // Add the details of the person using the introduceYourself method
-        results.add(Person1.introduceYourself(Person1.name, Person1.age));
+        results.add(Person1.introduceYourself());
 
         // Get the name of the person using the getter method and add it to the list
         results.add(Person1.getName());
@@ -402,7 +405,6 @@ public with sharing class ClassesObjectsMethods {
         for (String name : names) {
             Person p = createPerson(name, age);
             multiplePersons.add(p); //TR - because the instance was created, the instance variables were populated. So we just need to add the instance in.
-        
         } 
         return multiplePersons; 
     }

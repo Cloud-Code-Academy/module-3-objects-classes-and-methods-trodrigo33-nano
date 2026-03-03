@@ -204,8 +204,7 @@ public with sharing class ClassesObjectsMethodsTest {
     @IsTest
     static void testCreateAndGetBookDetails() {
         // Call the createAndGetBookDetails method and capture the return value
-        //TR added hardcoded parameters in.
-        String result = ClassesObjectsMethods.createAndGetBookDetails('A Brief History of Time', 'Stephen Hawking');
+        String result = ClassesObjectsMethods.createAndGetBookDetails();
 
         // Define the expected result
         String expectedResult = 'Title: A Brief History of Time, Author: Stephen Hawking';
@@ -253,7 +252,7 @@ public with sharing class ClassesObjectsMethodsTest {
         Assert.areEqual(25, testPerson.getAge(), 'The age should be correctly set');
 
         // Call the introduceYourself method and verify the result
-        String intro = testPerson.introduceYourself('John Doe', 25);
+        String intro = testPerson.introduceYourself();
         Assert.areEqual('Hello, my name is John Doe and I am 25 years old.', intro, 'The introduction should be correctly formatted');
 
         // Test the setter methods
@@ -265,7 +264,7 @@ public with sharing class ClassesObjectsMethodsTest {
         Assert.areEqual(30, testPerson.getAge(), 'The age should be correctly updated');
 
         // Call the introduceYourself method again and verify the result
-        intro = testPerson.introduceYourself('Jane Doe', 30);
+        intro = testPerson.introduceYourself();
         Assert.areEqual('Hello, my name is Jane Doe and I am 30 years old.', intro, 'The updated introduction should be correctly formatted');
     }
    
